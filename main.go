@@ -3,10 +3,14 @@ package main
 import (
 	"net/http"
 
+	"example.com/blog/models"
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
+	if err := models.ConnectToDB(); err != nil {
+		panic(err)
+	}
 	//Go router declaration
 	r := gin.Default()
 
