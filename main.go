@@ -5,9 +5,14 @@ import (
 
 	"example.com/blog/models"
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 )
 
 func main() {
+	err := godotenv.Load()
+	if err != nil {
+		panic(err)
+	}
 	if err := models.ConnectToDB(); err != nil {
 		panic(err)
 	}
